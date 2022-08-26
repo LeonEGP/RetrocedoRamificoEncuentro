@@ -151,6 +151,7 @@ int main()
 
     espacio();
     cout << "INGRESE LOS VALORES DE CADA LINEA:" << endl;
+    espacio();
 
     // ---------- LLENADO DEL LABERINTO ---------- //
 
