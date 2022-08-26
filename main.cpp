@@ -191,7 +191,7 @@ int main()
     espacio();
     backtracking(laberinto); //SOLUCIÓN POR BACKTRACKING - Complejidad Computacional O(2^(N*M)), siendo M y N las dimensiones del laberinto a resolver.
     espacio();
-    cout << "SOLUCION POR BRANCH AND FOUND:" << endl;
+    cout << "SOLUCION POR BRANCH AND BOUND:" << endl;
     espacio();
     branchandfoud(); //SOLUCIÓN POR BRANCH AND FOUND - PENDIENTE DE DESARROLLO !!!!!!!!!!!
     espacio();
