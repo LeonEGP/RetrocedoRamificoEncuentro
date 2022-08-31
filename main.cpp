@@ -75,7 +75,7 @@ bool encontrarCamino(int actualX, int actualY, vector< vector<int> >& solucion, 
     return false;
 }
 
-//Función que da solución mostrando el camino de solución a un laberinto dado (solución vía Backtracking y Branch and Bound), recibe como parámetro un vector de vectores de entero (laberinto), no tiene valor de retorno. 
+//Función que da solución mostrando el camino de solución a un laberinto dado, recibe como parámetro un vector de vectores de entero (laberinto), no tiene valor de retorno. 
 void resolverLaberinto(vector <vector <int>> laberinto) { //Complejidad Computacional O(2^(n*m)), siendo m y n las dimensiones del laberinto a resolver.
 
     //Declaración/Inicialización de variables.
