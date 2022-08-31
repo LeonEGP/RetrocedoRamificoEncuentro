@@ -1,7 +1,7 @@
 // ---------- DATOS DE ENTREGA ---------- //
-//Programa que: Implementa la técnica de programación "backtracking" y "Branch & Found".
+//Programa que: Implementa la técnica de programación "Backtracking" y "Branch & Found".
 //Programadores: León Emiliano García Pérez [A00573074], Carla Morales López [A01639225].
-//Fecha de entrega: Viernes 26 de Agosto de 2022.
+//Fecha de entrega: Martes 30 de Agosto de 2022.
 
 //Inclusión de librerías.
 #include <iostream>
@@ -13,12 +13,12 @@
 using namespace std;
 
 //Función que imprime en consola un salto de línea, no recibe parámetros y no tiene valor de retorno.
-void espacio() {
+void espacio() { //Complejidad Computacional: O(1).
     cout << endl;
 }
 
 //Función que imprime en consola un vector, recibe como parámetro un vector de enteros y no tiene valor de retorno.
-void mostrar(vector <int> vec) {
+void mostrar(vector <int> vec) { //Complejidad Computacional: O(n), siendo n la cantidad de elementos en el vector.
     for (int i = 0; i < vec.size(); i++) {
         cout << vec[i];
     }
@@ -26,27 +26,27 @@ void mostrar(vector <int> vec) {
 }
 
 //Función que imprime en consola un vector de vectores, recibe como parámetro un vector de vectores de enteros y no tiene valor de retorno.
-void imprimir(vector <vector <int>> vec) {
+void imprimir(vector <vector <int>> vec) { //Complejidad Computacional: O(n^2), siendo n la cantidad de elementos en el vector de vectores.
     for (int i = 0; i < vec.size(); i++) {
         mostrar(vec[i]);
     }
 }
 
-//Función que imprime en consola un vector de vectores (solución via Backtracking), recibe como parámetro un vector de vectores de enteros y no tiene valor de retorno.
-void imprimirSolucion(vector <vector <int>> solucion) {
+//Función que imprime en consola un vector de vectores, recibe como parámetro un vector de vectores de enteros y no tiene valor de retorno.
+void imprimirSolucion(vector <vector <int>> solucion) { //Complejidad Computacional: O(n^2), siendo n la cantidad de elementos en el vector de vectores.
     for (int i = 0; i < solucion.size(); i++) {
         mostrar(solucion[i]);
     }
 }
 
-//Función que verifica si un movimiento es válido (solución via Backtracking), recibe como parámetro dos enteros (movimiento en X y movimiento en Y), vector de vectores de enteros (solución) y vector de vectores de enteros (laberinto), retorna un valor booleano.
+//Función que verifica si un movimiento es válido, recibe como parámetro dos enteros (movimiento en X y movimiento en Y), vector de vectores de enteros (solución) y vector de vectores de enteros (laberinto), retorna un valor booleano.
 bool movimientoValido(int movimientoX, int movimientoY, vector< vector<int> >& solucion, vector< vector<int> >& laberinto) {
     return (movimientoX >= 0 && movimientoX < solucion.size() && movimientoY >= 0 && movimientoY < solucion.size() && solucion[movimientoX][movimientoY] == 0 && laberinto[movimientoX][movimientoY] == 1);
 }
 
-//Función que permite encontrar camino (solución via Backtracking), recibe como parámetro dos enteros (actual X y actual Y), vector de vectores de enteros (solución), dos vectores de enteros (coordena X y coordenada Y), entero n y vector de vectores de enteros (laberinto), retorna un valor booleano.
+//Función que permite encontrar camino, recibe como parámetro dos enteros (actual X y actual Y), vector de vectores de enteros (solución), dos vectores de enteros (coordena X y coordenada Y), entero n y vector de vectores de enteros (laberinto), retorna un valor booleano.
 bool encontrarCamino(int actualX, int actualY, vector< vector<int> >& solucion, vector<int> coordenadaX, vector<int> coordenadaY, int n, vector< vector<int> >& laberinto) {
-    
+
     //Declaración/Inicialización de variables.
     int movimientoX;
     int movimientoY;
@@ -75,8 +75,8 @@ bool encontrarCamino(int actualX, int actualY, vector< vector<int> >& solucion, 
     return false;
 }
 
-//Función que da solución mostrando el camino de solución a un laberinto dado (solución via Backtracking), recibe como parámetro un vector de vectores de entero (laberinto), no tiene valor de retorno. 
-void backtracking(vector <vector <int>> laberinto) { //Complejidad Computacional O(2^(N*M)), siendo M y N las dimensiones del laberinto a resolver.
+//Función que da solución mostrando el camino de solución a un laberinto dado (solución vía Backtracking y Branch and Bound), recibe como parámetro un vector de vectores de entero (laberinto), no tiene valor de retorno. 
+void resolverLaberinto(vector <vector <int>> laberinto) { //Complejidad Computacional O(2^(n*m)), siendo m y n las dimensiones del laberinto a resolver.
 
     //Declaración/Inicialización de variables.
     vector < vector<int> > solucion(laberinto[0].size(), vector<int>(laberinto[0].size(), 0));
@@ -88,7 +88,7 @@ void backtracking(vector <vector <int>> laberinto) { //Complejidad Computacional
 
     solucion[0][0] = 1;
     actualX = 0;
-    actualY= 0;
+    actualY = 0;
     n = laberinto[0].size();
 
     //Encontrar el siguiente destino.
@@ -100,14 +100,9 @@ void backtracking(vector <vector <int>> laberinto) { //Complejidad Computacional
     }
 }
 
-//PENDIENTE DE DESCRIPCIÓN !!!!!!!!!!!!!! - PENDIENTE DE NUEVA FIRMA!!!!!!!!
-void branchandfoud() { //PENDIENTE DE COMPLEJIDAD !!!!!!!!!!
-    cout << "en desarrollo ..." << endl;
-}
-
 //Función main que ejecuta el programa, no recibe parámetros, retorna un entero [return 0].
-int main()
-{
+int main() { //Complejidad Computacional: O(1).
+
     // ---------- DECLARACIÓN DE VARIABLES ---------- //
     int m; //Cantidad de lineas
     int n; //Cantidad de valores por linea
@@ -151,7 +146,6 @@ int main()
 
     espacio();
     cout << "INGRESE LOS VALORES DE CADA LINEA:" << endl;
-    espacio();
 
     // ---------- LLENADO DEL LABERINTO ---------- //
 
@@ -184,17 +178,13 @@ int main()
     espacio();
     cout << "LABERINTO FORMADO" << endl;
     espacio();
-    imprimir(laberinto); //IMPRESIÓN DE LABERINTO PARA VERIFICACIÓN
+    imprimir(laberinto); //IMPRESIÓN DE LABERINTO PARA VERIFICACIÓN.
     */
 
     espacio();
-    cout << "SOLUCION POR BACKTRACKING:" << endl;
+    cout << "SOLUCION:" << endl;
     espacio();
-    backtracking(laberinto); //SOLUCIÓN POR BACKTRACKING - Complejidad Computacional O(2^(N*M)), siendo M y N las dimensiones del laberinto a resolver.
-    espacio();
-    cout << "SOLUCION POR BRANCH AND BOUND:" << endl;
-    espacio();
-    branchandfoud(); //SOLUCIÓN POR BRANCH AND FOUND - PENDIENTE DE DESARROLLO !!!!!!!!!!!
+    resolverLaberinto(laberinto); //SOLUCIÓN - Complejidad Computacional O(2^(N*M)), siendo M y N las dimensiones del laberinto a resolver.
     espacio();
     cout << "------ TERMINANDO PROGRAMA -----" << endl;
     espacio();
